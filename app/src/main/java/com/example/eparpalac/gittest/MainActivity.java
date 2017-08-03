@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void testSnackbar(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+        Snackbar.make(view, "My action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
