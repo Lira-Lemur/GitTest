@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
             Toast.makeText(this, "Camera", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_gallery) {
             Toast.makeText(this, "Gallery", Toast.LENGTH_SHORT).show();
@@ -115,9 +114,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onClick(View view) {
-
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
-
+        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
     }
 }
