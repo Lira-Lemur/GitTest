@@ -64,20 +64,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (id){
             case R.id.action_settings:
-                testSnackbar(constraintLayout);
+                testSnackbar(constraintLayout, "Settings");
                 break;
 
             case R.id.action_test:
-                testSnackbar(constraintLayout);
+                testSnackbar(constraintLayout, "Test");
                 break;
-
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void testSnackbar(View view) {
-        Snackbar.make(view, "My action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+        private void testSnackbar(View view, String text) {
+        Snackbar.make(view, text, Snackbar.LENGTH_LONG).setAction("Action", null).show();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
