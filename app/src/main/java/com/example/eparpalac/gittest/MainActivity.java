@@ -1,6 +1,7 @@
 package com.example.eparpalac.gittest;
 
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -9,13 +10,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
+    ConstraintLayout constraintLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +27,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        fab.setOnClickListener(this);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -41,6 +37,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        constraintLayout = (ConstraintLayout) findViewById(R.id.main_layout);
     }
 
     @Override
@@ -68,11 +66,24 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+
+        switch (id){
+            case R.id.action_settings:
+                testSnackbar(constraintLayout);
+                break;
+
+            case R.id.action_test:
+                testSnackbar(constraintLayout);
+                break;
+
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void testSnackbar(View view) {
+        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -83,16 +94,17 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+            Toast.makeText(this, "Camera", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_gallery) {
-
+            Toast.makeText(this, "Gallery", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_slideshow) {
-
+            Toast.makeText(this, "Slideshow", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_manage) {
-
+            Toast.makeText(this, "Manage", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_share) {
-
+            Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_send) {
-
+            Toast.makeText(this, "Send", Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -100,7 +112,12 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void TestUplosd(){
-        Log.d("TAG", 10+14 + "");
+
+    @Override
+    public void onClick(View view) {
+
+        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+
     }
 }
